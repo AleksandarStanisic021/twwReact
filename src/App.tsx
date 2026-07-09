@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <div>
-        <p>test ...</p>
         <h1 className="text-4xl font-bold mb-8">TWW React App</h1>
       </div>
 
