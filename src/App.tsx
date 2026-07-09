@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { ThreeScene } from "./ThreeScene";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,8 +9,13 @@ function App() {
     <>
       <div>
         <p>test ...</p>
-        <h1>TWW React App</h1>
+        <h1 className="text-4xl font-bold mb-8">TWW React App</h1>
       </div>
+
+      <div className="mb-8">
+        <ThreeScene />
+      </div>
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
