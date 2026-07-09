@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { ThreeScene } from "./ThreeScene";
+import { Cube3D } from "./Cube3D";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,7 +13,7 @@ function App() {
       </div>
 
       <div className="mb-8">
-        <ThreeScene />
+        <Cube3D />
       </div>
 
       <div className="card">

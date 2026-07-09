@@ -1,6 +1,5 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Box, Sphere, Icosahedron } from "@react-three/drei";
 
 export function RotatingScene() {
   const groupRef = useRef(null);
@@ -14,17 +13,23 @@ export function RotatingScene() {
 
   return (
     <group ref={groupRef}>
-      <Icosahedron args={[1, 4]} position={[0, 0, 0]}>
-        <meshPhongMaterial color="#0071e3" />
-      </Icosahedron>
+      {/* Center Cube */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1.5, 1.5, 1.5]} />
+        <meshStandardMaterial color="#0071e3" />
+      </mesh>
 
-      <Sphere args={[0.5, 32, 32]} position={[2.5, 0, 0]}>
-        <meshPhongMaterial color="#f5f5f7" />
-      </Sphere>
+      {/* Right Sphere */}
+      <mesh position={[2.5, 0, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color="#f5f5f7" />
+      </mesh>
 
-      <Box args={[1.5, 1.5, 1.5]} position={[-2.5, 0, 0]}>
-        <meshPhongMaterial color="#646cff" />
-      </Box>
+      {/* Left Cone */}
+      <mesh position={[-2.5, 0, 0]}>
+        <coneGeometry args={[1, 2, 32]} />
+        <meshStandardMaterial color="#646cff" />
+      </mesh>
     </group>
   );
 }
@@ -32,9 +37,9 @@ export function RotatingScene() {
 export function Lights() {
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#646cff" />
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[5, 5, 5]} intensity={0.8} />
+      <pointLight position={[-5, -5, 5]} intensity={0.5} color="#646cff" />
     </>
   );
 }
